@@ -1,0 +1,348 @@
+#center{
+    display: flex !important;
+    margin:auto;
+}
+
+.adm-square{
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    background-color: orange;
+    border: 2px solid #ccc;
+    height: 20vh;
+    width: 20vh; 
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 10px;
+
+}
+.adm-square p{
+    transition: .5s;
+}
+
+.adm-square:hover{
+    cursor: pointer;
+    transition: .5s;   
+    margin: 15px;
+    transform: scale(1.5);
+    
+}
+.adm-square:hover p {
+    transform: scale(1.5);
+    transition: .5s;
+}
+
+.block{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+
+#pop-up{
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.785);
+}
+
+#pop-up #infos{
+    padding: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* botão da div pop-up */
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;    
+  }
+  
+  #close p {    
+    top:2em;
+    right: 10%;
+    transform: translate(0, -50%);
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  
+  #close p::before, #close p::after {
+    transition: 0.5s;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transform: translateY(-50%);
+  }
+  
+  #close p::before {
+    transform: rotate(45deg);
+  }
+  
+  #close p::after {
+    transform: rotate(-45deg);
+  }
+  
+  #close:hover p::before, #close:hover p::after {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+/* fim da zona do botao do pop-up */
+ 
+/* Inicio da zona de adicionar produtos */
+
+.add-product{ 
+  display: flex;
+  padding: 20px;
+  margin: auto;
+}
+.add-product > div{
+  width: 50%;
+  /* border: 1px solid red; */
+}
+
+.add-product .image{
+  text-align: center;
+  margin: auto;
+  display: block;
+}
+
+#previewImage {
+  margin-top: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  height: 350px;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+.product-information p{
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 0px !important;
+}
+.product-information input{
+  width: 40%;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.product-information input:hover{
+  border: 1px solid #000;
+}
+.product-information input:focus{
+  border: 1px solid #000;
+  background-color: rgba(128, 128, 128, 0.299);
+}
+.product-information textarea{
+  width: 95%;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  resize: none;
+}
+.product-information input[type="number"]{
+  text-align: end;
+  width: 15%;  
+  height: 10%;
+  font-size: larger;
+}
+.product-information input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.category{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.category div{
+  margin: 10px 4px;
+}
+
+.category div label{
+  cursor: pointer;
+}
+.category div label input[type="checkbox"]{
+  display: none;
+}
+.category div label span{
+  font-size: large;
+  position: relative;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 2px 3px;
+  border-radius: 30px;
+  transition: .5s;
+  user-select: none;
+  overflow: hidden;
+}
+
+@keyframes scale{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+  
+.category div label span:hover{
+  animation: scale 1.8s infinite linear;
+  /* scale: 1.1; */
+}
+.category div label span::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+}
+.category div label input[type="checkbox"]:checked ~ span{
+  background: orange;
+  border: 1px solid orange;
+  color: #fff;
+}
+
+.add-product-submit{
+  width: 100%;
+  padding: 0px 15px;
+  text-align: end;
+  transition: .5s;
+}
+.add-product-submit button{
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: orange;
+  color: #fff;
+  font-size: large;
+  cursor: pointer;
+  transition: .5s;
+}
+
+/* Fim da zona de adicionar produtos */
+
+/* Inicio da zona de ver produtos */
+
+.display-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  text-align: center;
+}
+
+.product h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.product p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.product img {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* zona do popup da imagem grande */
+
+.BigImagePopup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+/* fim do popup da imagem grande */
+
+/* Fim da zona de ver produtos */
+
+/* Inicio da zona de display de users */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: orange;
+  color: white;
+}
+
+
+
+/* Fim da zona de display de users */
+
+
